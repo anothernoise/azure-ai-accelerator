@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+.venv/
+azure-ai-foundry-legacy-chat/infra/bicep/**/*.json
+azure-ai-foundry-legacy-chat/infra/scripts/__pycache__
+__pycache__
