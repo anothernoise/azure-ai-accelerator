@@ -2,9 +2,9 @@
 # Deploy Lesson 1 classic Foundry infra from Bicep (dev / prod environments).
 #
 # Usage (from repo root):
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh --env dev --what-if
-#   ENVIRONMENT=prod ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh
+#   ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh
+#   ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh --env dev --what-if
+#   ENVIRONMENT=prod ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh
 #
 # Writes: .env.{ENVIRONMENT} and updates .env (active pointer for local runs)
 
@@ -12,7 +12,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
-BICEP_DIR="${REPO_ROOT}/azure-ai-foundry-legacy-chat/infra/bicep"
+BICEP_DIR="${REPO_ROOT}/azure-ai-foundry-classic-chat/infra/bicep"
 
 ENVIRONMENT="${ENVIRONMENT:-dev}"
 WORKLOAD="${WORKLOAD:-aialearn}"
@@ -25,7 +25,7 @@ usage() {
 Deploy classic Foundry hub infra (Bicep)
 
 Usage:
-  ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh [--env dev|prod|test] [--what-if]
+  ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh [--env dev|prod|test] [--what-if]
 
 Environment variables:
   ENVIRONMENT    dev (default) | prod | test
@@ -40,8 +40,8 @@ Outputs:
   \${REPO_ROOT}/.env                — copy of active environment (local default)
 
 Examples:
-  ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh --env dev --what-if
-  ENVIRONMENT=prod ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh
+  ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh --env dev --what-if
+  ENVIRONMENT=prod ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh
 EOF
 }
 
@@ -163,7 +163,7 @@ main() {
   if [[ "${WHAT_IF}" -eq 0 ]]; then
     echo
     echo "Done. Run chat:"
-    echo "  cd azure-ai-foundry-legacy-chat && ENVIRONMENT=${ENVIRONMENT} ../.venv/bin/python chat.py"
+    echo "  cd azure-ai-foundry-classic-chat && ENVIRONMENT=${ENVIRONMENT} ../.venv/bin/python chat.py"
   fi
 }
 

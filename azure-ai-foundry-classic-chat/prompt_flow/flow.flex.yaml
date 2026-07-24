@@ -1,0 +1,12 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+entry: flow:ChatFlow
+sample:
+  inputs:
+    question: "Hey, can you help me with my taxes? I'm a freelancer."
+  init:
+    model_config:
+      connection: aialearn_aoai_connection
+      azure_deployment: gpt-5-mini
+      max_total_token: 4096
+environment:
+  python_requirements_txt: requirements.txt

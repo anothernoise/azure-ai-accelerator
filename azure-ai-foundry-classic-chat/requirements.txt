@@ -1,0 +1,7 @@
+azure-ai-inference
+azure-identity
+azure-ai-projects==1.0.0b10
+python-dotenv
+# Optional: Prompt Flow sample (chat-prompt-flow.py) — retires 2027-04-20
+promptflow>=1.11.0
+promptflow-tools

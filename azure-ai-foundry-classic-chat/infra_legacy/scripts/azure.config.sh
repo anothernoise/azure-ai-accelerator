@@ -14,7 +14,7 @@ if [[ ! -f "${ENV_FILE}" ]]; then
   echo "Missing ${ENV_FILE}"
   echo "Create from template and deploy:"
   echo "  cp .env.example .env.dev"
-  echo "  ENVIRONMENT=dev ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh"
+  echo "  ENVIRONMENT=dev ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh"
   exit 1
 fi
 

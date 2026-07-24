@@ -2,11 +2,11 @@
 # Granular delete for classic Foundry infra (day-2 ops).
 #
 # Usage:
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove-project --env dev
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove-hub --env dev
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove-account --env dev
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove --env dev          # entire RG
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh delete --env prod         # alias
+#   ./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove-project --env dev
+#   ./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove-hub --env dev
+#   ./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove-account --env dev
+#   ./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove --env dev          # entire RG
+#   ./azure-ai-foundry-classic-chat/infra/scripts/remove.sh delete --env prod         # alias
 
 set -euo pipefail
 
@@ -30,7 +30,7 @@ usage() {
 Remove classic Foundry resources (granular or full RG)
 
 Usage:
-  ./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh <command> [--env dev|test|prod]
+  ./azure-ai-foundry-classic-chat/infra/scripts/remove.sh <command> [--env dev|test|prod]
 
 Commands:
   remove-project    Delete hub project only
@@ -42,8 +42,8 @@ Commands:
 Config: .env.{environment} (from deploy.sh)
 
 Examples:
-  ./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove-project --env dev
-  ./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove --env dev
+  ./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove-project --env dev
+  ./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove --env dev
 EOF
 }
 

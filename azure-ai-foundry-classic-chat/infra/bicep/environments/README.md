@@ -10,8 +10,8 @@ Deploy:
 
 ```bash
 # from repo root
-ENVIRONMENT=dev  ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh
-ENVIRONMENT=prod ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh   # prompts for confirmation
+ENVIRONMENT=dev  ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh
+ENVIRONMENT=prod ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh   # prompts for confirmation
 ```
 
 Each environment writes its own config file: `.env.dev`, `.env.prod` (repo root).

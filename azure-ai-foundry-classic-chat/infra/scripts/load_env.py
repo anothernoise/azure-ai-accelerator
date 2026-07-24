@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 
 def repo_root() -> Path:
-    # azure-ai-foundry-legacy-chat/infra/scripts -> repo root
+    # azure-ai-foundry-classic-chat/infra/scripts -> repo root
     return Path(__file__).resolve().parents[3]
 
 
@@ -38,5 +38,5 @@ def load_project_env(root: Path | None = None, environment: str | None = None) -
         return fallback
     raise FileNotFoundError(
         f"No env file found. Expected {primary} or {fallback}. "
-        f"Run: ENVIRONMENT={env} ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh"
+        f"Run: ENVIRONMENT={env} ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh"
     )

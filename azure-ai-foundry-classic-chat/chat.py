@@ -2,9 +2,9 @@ import os
 import sys
 from pathlib import Path
 
-# Load .env.{ENVIRONMENT} from repo root (see azure-ai-foundry-legacy-chat/infra/scripts/load_env.py)
+# Load .env.{ENVIRONMENT} from repo root (see azure-ai-foundry-classic-chat/infra/scripts/load_env.py)
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "azure-ai-foundry-legacy-chat" / "infra" / "scripts"))
+sys.path.insert(0, str(ROOT / "azure-ai-foundry-classic-chat" / "infra" / "scripts"))
 from load_env import load_project_env  # noqa: E402
 
 load_project_env(ROOT)
@@ -20,7 +20,7 @@ environment_name = os.getenv("ENVIRONMENT_NAME", os.getenv("ENVIRONMENT", "dev")
 if not project_connection_string:
     raise ValueError(
         "AZURE_PROJECT_CONNECTION_STRING is not set. "
-        f"Run: ENVIRONMENT={environment_name} ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh"
+        f"Run: ENVIRONMENT={environment_name} ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh"
     )
 
 print(f"Using environment: {environment_name}")

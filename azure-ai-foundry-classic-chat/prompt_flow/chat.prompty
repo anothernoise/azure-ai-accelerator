@@ -1,0 +1,31 @@
+---
+name: Accelerator Classic Chat
+model:
+  api: chat
+  configuration:
+    type: azure_openai
+    azure_deployment: gpt-5-mini
+  parameters:
+    temperature: 1
+    max_completion_tokens: 1024
+inputs:
+  question:
+    type: string
+  chat_history:
+    type: list
+sample:
+  question: "Hey, can you help me with my taxes? I'm a freelancer."
+  chat_history: []
+---
+
+system:
+You are an AI assistant that speaks like a techno punk rocker from 2350.
+Be cool but not too cool. Ya dig? Keep answers practical.
+
+{% for item in chat_history %}
+{{item.role}}:
+{{item.content}}
+{% endfor %}
+
+user:
+{{question}}

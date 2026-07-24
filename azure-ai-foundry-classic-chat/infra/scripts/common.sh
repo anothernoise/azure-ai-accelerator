@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Shared helpers for azure-ai-foundry-legacy-chat/infra/scripts (source, do not execute directly).
+# Shared helpers for azure-ai-foundry-classic-chat/infra/scripts (source, do not execute directly).
 
 PROVIDER_MAX_ATTEMPTS="${PROVIDER_MAX_ATTEMPTS:-60}"
 PROVIDER_POLL_SECONDS="${PROVIDER_POLL_SECONDS:-5}"
@@ -9,7 +9,7 @@ common_init() {
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[1]}")" && pwd)"
   fi
   REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
-  BICEP_DIR="${REPO_ROOT}/azure-ai-foundry-legacy-chat/infra/bicep"
+  BICEP_DIR="${REPO_ROOT}/azure-ai-foundry-classic-chat/infra/bicep"
 
   ENVIRONMENT="${ENVIRONMENT:-dev}"
   WORKLOAD="${WORKLOAD:-aialearn}"
@@ -117,8 +117,8 @@ load_env_file() {
   fi
   if [[ ! -f "${env_file}" ]]; then
     echo "Missing ${env_file}. Deploy first:"
-    echo "  ENVIRONMENT=${ENVIRONMENT} ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh"
-    echo "  (from repo root, or: cd azure-ai-foundry-legacy-chat/infra/scripts && ./deploy.sh --env ${ENVIRONMENT})"
+    echo "  ENVIRONMENT=${ENVIRONMENT} ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh"
+    echo "  (from repo root, or: cd azure-ai-foundry-classic-chat/infra/scripts && ./deploy.sh --env ${ENVIRONMENT})"
     exit 1
   fi
   if [[ "${env_file}" == "${REPO_ROOT}/.env" && ! -f "$(env_file_path)" ]]; then

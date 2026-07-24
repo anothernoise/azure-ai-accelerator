@@ -1,0 +1,24 @@
+# Optional local Gradio UI (classic-chat module)
+# From repo root:
+#   docker compose -f azure-ai-foundry-classic-chat/docker-compose.yml up --build
+
+services:
+  gradio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7860:7860"
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT:-dev}
+      ENVIRONMENT_NAME: ${ENVIRONMENT:-dev}
+      CONFIG_ROOT: /config
+    env_file:
+      - path: ../.env.dev
+        required: false
+      - path: ../.env
+        required: false
+    volumes:
+      - ..:/config:ro
+    working_dir: /app
+    command: ["python", "app_gradio.py"]

@@ -2,9 +2,9 @@
 # Refresh .env.{environment} from an existing ARM deployment (no redeploy).
 #
 # Usage:
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev --deployment aialearn-dev-20250723120000
-#   ./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev --live-connection
+#   ./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev
+#   ./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev --deployment aialearn-dev-20250723120000
+#   ./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev --live-connection
 
 set -euo pipefail
 
@@ -24,7 +24,7 @@ Usage:
   ./refresh-env.sh [--env dev|test|prod] [options]
 
   From repo root:
-  ./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev
+  ./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev
 
 Options:
   --deployment NAME   ARM deployment name (default: latest succeeded aialearn-\$ENVIRONMENT-*)
@@ -32,8 +32,8 @@ Options:
   --no-copy-active    Do not copy .env.\$ENVIRONMENT → .env
 
 Examples:
-  ./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev
-  ./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev --live-connection
+  ./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev
+  ./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev --live-connection
 EOF
 }
 
@@ -60,7 +60,7 @@ if [[ -z "${ARM_DEPLOYMENT}" || "${ARM_DEPLOYMENT}" == "null" ]]; then
   echo "No succeeded ARM deployment found in RG '${RG_NAME}' matching aialearn-${ENVIRONMENT}-*"
   echo ""
   echo "Bicep has not been deployed for this environment yet. From repo root:"
-  echo "  ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh --env ${ENVIRONMENT}"
+  echo "  ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh --env ${ENVIRONMENT}"
   echo "Or from this directory:"
   echo "  ./deploy.sh --env ${ENVIRONMENT}"
   exit 1

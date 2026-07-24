@@ -3,7 +3,7 @@
 Declarative Azure infra for Lesson 1 classic hub + AI Services.
 
 ```text
-azure-ai-foundry-legacy-chat/infra/
+azure-ai-foundry-classic-chat/infra/
   bicep/
     main.bicep
     environments/             # dev | test | prod parameter files
@@ -19,7 +19,7 @@ azure-ai-foundry-legacy-chat/infra/
     common.sh                 # shared helpers
 ```
 
-Legacy shell stack: `azure-ai-foundry-legacy-chat/infra_legacy/scripts/` (reference only).
+Legacy shell stack: `azure-ai-foundry-classic-chat/infra_legacy/scripts/` (reference only — keep at module root, not under `infra/`).
 
 See also [../architecture.md](../architecture.md) for diagrams and system design.
 
@@ -36,11 +36,11 @@ See also [../architecture.md](../architecture.md) for diagrams and system design
 ## Deploy
 
 ```bash
-chmod +x azure-ai-foundry-legacy-chat/infra/scripts/*.sh
+chmod +x azure-ai-foundry-classic-chat/infra/scripts/*.sh
 
-./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh --env dev --what-if
-./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh --env dev
-ENVIRONMENT=prod ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh
+./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh --env dev --what-if
+./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh --env dev
+ENVIRONMENT=prod ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh
 ```
 
 Writes `.env.{environment}` and copies to `.env`.
@@ -52,9 +52,9 @@ Writes `.env.{environment}` and copies to `.env`.
 Re-read ARM deployment outputs into `.env.{env}`:
 
 ```bash
-./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev
-./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev --live-connection   # rebuild connection string from portal
-./azure-ai-foundry-legacy-chat/infra/scripts/refresh-env.sh --env dev --deployment aialearn-dev-20250723120000
+./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev
+./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev --live-connection   # rebuild connection string from portal
+./azure-ai-foundry-classic-chat/infra/scripts/refresh-env.sh --env dev --deployment aialearn-dev-20250723120000
 ```
 
 ### Change model / capacity (no full infra redeploy)
@@ -62,11 +62,11 @@ Re-read ARM deployment outputs into `.env.{env}`:
 Edit `.env.{env}` or Bicep params, then:
 
 ```bash
-ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-legacy-chat/infra/scripts/deploy_model.py update
-ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-legacy-chat/infra/scripts/deploy_model.py show
-ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-legacy-chat/infra/scripts/deploy_model.py list
-ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-legacy-chat/infra/scripts/deploy_model.py delete
-ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-legacy-chat/infra/scripts/deploy_model.py delete-all
+ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-classic-chat/infra/scripts/deploy_model.py update
+ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-classic-chat/infra/scripts/deploy_model.py show
+ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-classic-chat/infra/scripts/deploy_model.py list
+ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-classic-chat/infra/scripts/deploy_model.py delete
+ENVIRONMENT=dev ../.venv/bin/python azure-ai-foundry-classic-chat/infra/scripts/deploy_model.py delete-all
 ```
 
 Or change `environments/dev.bicepparam` and redeploy — Bicep is idempotent for model updates.
@@ -76,11 +76,11 @@ Or change `environments/dev.bicepparam` and redeploy — Bicep is idempotent for
 Granular (uses names from `.env.{env}`):
 
 ```bash
-./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove-project --env dev
-./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove-hub --env dev
-./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove-account --env dev
-./azure-ai-foundry-legacy-chat/infra/scripts/remove.sh remove --env dev      # entire RG
-./azure-ai-foundry-legacy-chat/infra/scripts/destroy.sh --env dev            # same as remove
+./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove-project --env dev
+./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove-hub --env dev
+./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove-account --env dev
+./azure-ai-foundry-classic-chat/infra/scripts/remove.sh remove --env dev      # entire RG
+./azure-ai-foundry-classic-chat/infra/scripts/destroy.sh --env dev            # same as remove
 ```
 
 Order for partial teardown: **project → hub → account**. Fastest cleanup: `remove --env dev`.
@@ -109,7 +109,7 @@ These legacy patterns were dropped on purpose:
 ## Run lesson app
 
 ```bash
-cd azure-ai-foundry-legacy-chat
+cd azure-ai-foundry-classic-chat
 ENVIRONMENT=dev ../.venv/bin/python chat.py
 ```
 

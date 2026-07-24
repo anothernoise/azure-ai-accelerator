@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.git/
+infra/bicep/**/*.json
+prompt_flow/
+infra_legacy/

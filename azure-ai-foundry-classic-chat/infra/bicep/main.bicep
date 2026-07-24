@@ -2,8 +2,8 @@
 // Creates: AIServices (+ model), storage, key vault, hub, AIServices connection, hub project
 //
 // Deploy (from repo root):
-//   ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh --env dev
-//   ENVIRONMENT=prod ./azure-ai-foundry-legacy-chat/infra/scripts/deploy.sh
+//   ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh --env dev
+//   ENVIRONMENT=prod ./azure-ai-foundry-classic-chat/infra/scripts/deploy.sh
 
 targetScope = 'resourceGroup'
 
